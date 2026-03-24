@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroElite - Proveedora de Alimentos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <div class="logo">
+        <div class="logo__mark">AE</div>
+        <div class="logo__text">
+          <span class="logo__name">AgroElite</span>
+          <span class="logo__sub">Proveedora Premium</span>
+        </div>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="#inicio" class="nav__link">Inicio</a>
+        <a href="#servicios" class="nav__link">Servicios</a>
+        <a href="#catalogo" class="nav__link">Catálogo</a>
+        <a href="#empresa" class="nav__link">Empresa</a>
+        <a href="#contacto" class="nav__link nav__link--cta">Solicitar cotización</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__grid container">
+      <div class="hero__left">
+        <div class="hero__tag">
+          <span class="dot"></span>
+          Distribuidor certificado · Más de 15 años
+        </div>
+        <h1 class="hero__title">
+          Calidad <span class="gold">premium</span> en cada entrega
+        </h1>
+        <p class="hero__lead">Proveemos alimentos frescos y procesados a restaurantes, hoteles y empresas de toda la región. Con logística propia y cadena de frío garantizada.</p>
+        <div class="hero__btns">
+          <a href="#catalogo" class="btn btn--gold">Ver catálogo completo</a>
+          <a href="#contacto" class="btn btn--outline-white">Contactar asesor</a>
+        </div>
+        <div class="hero__trust">
+          <div class="trust-item"><span class="trust-num">500+</span><span>Productos</span></div>
+          <div class="trust-div"></div>
+          <div class="trust-item"><span class="trust-num">200+</span><span>Clientes activos</span></div>
+          <div class="trust-div"></div>
+          <div class="trust-item"><span class="trust-num">15</span><span>Años de experiencia</span></div>
+        </div>
+      </div>
+      <div class="hero__right">
+        <div class="hero__card-stack">
+          <div class="hcard hcard--1">
+            <span>🥩</span>
+            <div>
+              <strong>Carnes y embutidos</strong>
+              <p>Calidad certificada</p>
+            </div>
+          </div>
+          <div class="hcard hcard--2">
+            <span>🥦</span>
+            <div>
+              <strong>Frutas y verduras</strong>
+              <p>Frescura garantizada</p>
+            </div>
+          </div>
+          <div class="hcard hcard--3">
+            <span>🐟</span>
+            <div>
+              <strong>Pescados y mariscos</strong>
+              <p>Cadena de frío</p>
+            </div>
+          </div>
+          <div class="hcard hcard--4">
+            <span>🌾</span>
+            <div>
+              <strong>Granos y lácteos</strong>
+              <p>Mayoreo disponible</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="servicios" id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">Lo que ofrecemos</span>
+        <h2 class="section-title">Servicios integrales</h2>
+        <p class="section-desc">Más que un proveedor, somos tu aliado estratégico de abastecimiento.</p>
+      </div>
+      <div class="servicios-grid">
+        <div class="servicio-card">
+          <div class="servicio-icon">🚛</div>
+          <h3>Logística refrigerada</h3>
+          <p>Flota propia con temperatura controlada. Entrega en 24 horas a toda la región.</p>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-icon">📦</div>
+          <h3>Pedidos a medida</h3>
+          <p>Sin cantidades mínimas rígidas. Adaptamos el volumen y frecuencia a tu operación.</p>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-icon">🏅</div>
+          <h3>Calidad certificada</h3>
+          <p>Todos los productos con certificación sanitaria. Trazabilidad completa por lote.</p>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-icon">🤝</div>
+          <h3>Asesor dedicado</h3>
+          <p>Cada cliente cuenta con un asesor de cuenta exclusivo para atención personalizada.</p>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-icon">📊</div>
+          <h3>Reportes de compra</h3>
+          <p>Acceso a historial, facturas y reportes de consumo para optimizar tu inventario.</p>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-icon">🔄</div>
+          <h3>Reposición automática</h3>
+          <p>Programa pedidos recurrentes y olvídate de quedarte sin insumos clave.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section class="catalogo" id="catalogo">
+    <div class="container">
+      <div class="catalogo__top">
+        <div class="section-head">
+          <span class="section-label">Catálogo</span>
+          <h2 class="section-title">Nuestros productos</h2>
+        </div>
+        <div class="catalogo__controls">
+          <div class="search-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Buscar producto..." />
+          </div>
+          <div class="cat-tabs" id="catTabs">
+            <button class="cat-tab active" data-filter="todos">Todos</button>
+            <button class="cat-tab" data-filter="frutas">Frutas</button>
+            <button class="cat-tab" data-filter="verduras">Verduras</button>
+            <button class="cat-tab" data-filter="carnes">Carnes</button>
+            <button class="cat-tab" data-filter="lacteos">Lácteos</button>
+            <button class="cat-tab" data-filter="pescados">Pescados</button>
+            <button class="cat-tab" data-filter="granos">Granos</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="products-list" id="productsList">
+
+        <!-- FRUTAS -->
+        <div class="prod-row" data-cat="frutas">
+          <div class="prod-row__emoji">🍎</div>
+          <div class="prod-row__info">
+            <h3>Manzana Roja</h3>
+            <p>Calibre 80-90 · Caja 18 kg · Valle Central</p>
+          </div>
+          <span class="prod-row__tag">Frutas</span>
+          <span class="prod-row__price">$42.00</span>
+          <span class="prod-row__unit">/ caja</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Manzana Roja','🍎','Frutas','Manzanas de primera calidad, calibre 80-90. Presentación: caja de 18 kg. Origen: Valle Central. Disponibilidad anual. Apta para servicio gourmet y consumo masivo.','$42.00 / caja')">Detalle</button>
+        </div>
+
+        <div class="prod-row" data-cat="frutas">
+          <div class="prod-row__emoji">🍊</div>
+          <div class="prod-row__info">
+            <h3>Naranja Valencia</h3>
+            <p>Dulce, jugosa · Caja 20 kg · Temporada</p>
+          </div>
+          <span class="prod-row__tag">Frutas</span>
+          <span class="prod-row__price">$36.00</span>
+          <span class="prod-row__unit">/ caja</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Naranja Valencia','🍊','Frutas','Naranja valencia dulce y jugosa. Caja de 20 kg. De temporada alta. Alta concentración de jugo. Ideal para juguerías, restaurantes y hoteles.','$36.00 / caja')">Detalle</button>
+        </div>
+
+        <div class="prod-row" data-cat="frutas">
+          <div class="prod-row__emoji">🍇</div>
+          <div class="prod-row__info">
+            <h3>Uva Red Globe</h3>
+            <p>Sin semilla · Caja 8 kg · Importada</p>
+          </div>
+          <span class="prod-row__tag">Frutas</span>
+          <span class="prod-row__price">$98.00</span>
+          <span class="prod-row__unit">/ caja</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Uva Red Globe','🍇','Frutas','Uva red globe sin semilla, calibre premium. Caja de 8 kg. Importada con certificado fitosanitario. Presentación impecable para servicio de alta gama.','$98.00 / caja')">Detalle</button>
+        </div>
+
+        <!-- VERDURAS -->
+        <div class="prod-row" data-cat="verduras">
+          <div class="prod-row__emoji">🥦</div>
+          <div class="prod-row__info">
+            <h3>Brócoli Fresco</h3>
+            <p>Cabezas compactas · Caja 5 kg · Hidropónico</p>
+          </div>
+          <span class="prod-row__tag">Verduras</span>
+          <span class="prod-row__price">$22.00</span>
+          <span class="prod-row__unit">/ caja</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Brócoli Fresco','🥦','Verduras','Brócoli hidropónico con cabezas compactas y sin amarillamiento. Caja de 5 kg. Cosecha diaria. Sin pesticidas. Certificado orgánico disponible.','$22.00 / caja')">Detalle</button>
+        </div>
+
+        <div class="prod-row" data-cat="verduras">
+          <div class="prod-row__emoji">🫑</div>
+          <div class="prod-row__info">
+            <h3>Chile Morrón Tricolor</h3>
+            <p>Rojo, verde, amarillo · Caja 5 kg</p>
+          </div>
+          <span class="prod-row__tag">Verduras</span>
+          <span class="prod-row__price">$65.00</span>
+          <span class="prod-row__unit">/ caja</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Chile Morrón Tricolor','🫑','Verduras','Mix de chile morrón rojo, verde y amarillo. Caja de 5 kg. Calibre uniforme, sin manchas. Ideal para cocina mediterránea y gourmet.','$65.00 / caja')">Detalle</button>
+        </div>
+
+        <div class="prod-row" data-cat="verduras">
+          <div class="prod-row__emoji">🧄</div>
+          <div class="prod-row__info">
+            <h3>Ajo Importado</h3>
+            <p>Calibre extra · Malla 10 kg · Sin brotes</p>
+          </div>
+          <span class="prod-row__tag">Verduras</span>
+          <span class="prod-row__price">$145.00</span>
+          <span class="prod-row__unit">/ malla</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Ajo Importado','🧄','Verduras','Ajo importado calibre extra, sin brotes. Malla de 10 kg. Aroma intenso y larga vida de anaquel. Para cocinas de alto volumen.','$145.00 / malla')">Detalle</button>
+        </div>
+
+        <!-- CARNES -->
+        <div class="prod-row" data-cat="carnes">
+          <div class="prod-row__emoji">🥩</div>
+          <div class="prod-row__info">
+            <h3>Pechuga de Pollo sin hueso</h3>
+            <p>Sin hueso, refrigerada · Caja 10 kg</p>
+          </div>
+          <span class="prod-row__tag">Carnes</span>
+          <span class="prod-row__price">$95.00</span>
+          <span class="prod-row__unit">/ caja</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Pechuga de Pollo sin hueso','🥩','Carnes','Pechuga entera sin hueso, refrigerada. Caja de 10 kg. Planta certificada NOM. Sin antibióticos. Excelente rendimiento para cocina profesional.','$95.00 / caja')">Detalle</button>
+        </div>
+
+        <div class="prod-row" data-cat="carnes">
+          <div class="prod-row__emoji">🐄</div>
+          <div class="prod-row__info">
+            <h3>Filete de Res Premium</h3>
+            <p>Corte especial · Pieza 2–3 kg · Res selecta</p>
+          </div>
+          <span class="prod-row__tag">Carnes</span>
+          <span class="prod-row__price">$280.00</span>
+          <span class="prod-row__unit">/ pieza</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Filete de Res Premium','🐄','Carnes','Filete de res de corte especial. Pieza de 2 a 3 kg. Res selecta certificada. Marmoleo óptimo. Ideal para restaurantes de alta cocina y steakhouses.','$280.00 / pieza')">Detalle</button>
+        </div>
+
+        <!-- LÁCTEOS -->
+        <div class="prod-row" data-cat="lacteos">
+          <div class="prod-row__emoji">🧀</div>
+          <div class="prod-row__info">
+            <h3>Queso Gouda Importado</h3>
+            <p>Maduro 3 meses · Pieza 3 kg</p>
+          </div>
+          <span class="prod-row__tag">Lácteos</span>
+          <span class="prod-row__price">$195.00</span>
+          <span class="prod-row__unit">/ pieza</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Queso Gouda Importado','🧀','Lácteos','Queso gouda importado con 3 meses de maduración. Pieza de 3 kg. Corteza natural, pasta semidura. Ideal para tablas de quesos y cocina de autor.','$195.00 / pieza')">Detalle</button>
+        </div>
+
+        <div class="prod-row" data-cat="lacteos">
+          <div class="prod-row__emoji">🥛</div>
+          <div class="prod-row__info">
+            <h3>Yogur Natural Mayoreo</h3>
+            <p>Sin azúcar · Cubeta 4 kg</p>
+          </div>
+          <span class="prod-row__tag">Lácteos</span>
+          <span class="prod-row__price">$72.00</span>
+          <span class="prod-row__unit">/ cubeta</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Yogur Natural Mayoreo','🥛','Lácteos','Yogur natural sin azúcar. Cubeta de 4 kg. Cultivos vivos activos. Sin conservadores. Ideal para líneas de desayuno y postres en hoteles y cafeterías.','$72.00 / cubeta')">Detalle</button>
+        </div>
+
+        <!-- PESCADOS -->
+        <div class="prod-row" data-cat="pescados">
+          <div class="prod-row__emoji">🦐</div>
+          <div class="prod-row__info">
+            <h3>Camarón U-15 Jumbo</h3>
+            <p>Pelado y desvenado · Bolsa 1 kg · IQF</p>
+          </div>
+          <span class="prod-row__tag">Pescados</span>
+          <span class="prod-row__price">$220.00</span>
+          <span class="prod-row__unit">/ bolsa</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Camarón U-15 Jumbo','🦐','Pescados','Camarón jumbo talla U-15, pelado y desvenado. Bolsa de 1 kg congelado IQF. Sin aditivos. El más grande de nuestra línea. Para cocina de alta gama.','$220.00 / bolsa')">Detalle</button>
+        </div>
+
+        <div class="prod-row" data-cat="pescados">
+          <div class="prod-row__emoji">🐟</div>
+          <div class="prod-row__info">
+            <h3>Salmón Atlántico en Filete</h3>
+            <p>Sin piel · Filete 1–1.5 kg · Importado</p>
+          </div>
+          <span class="prod-row__tag">Pescados</span>
+          <span class="prod-row__price">$310.00</span>
+          <span class="prod-row__unit">/ filete</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Salmón Atlántico en Filete','🐟','Pescados','Filete de salmón atlántico sin piel, de 1 a 1.5 kg. Importado certificado. Color vibrante, alto contenido de omega-3. Ideal para sushi, ceviche y cocina mediterránea.','$310.00 / filete')">Detalle</button>
+        </div>
+
+        <!-- GRANOS -->
+        <div class="prod-row" data-cat="granos">
+          <div class="prod-row__emoji">🌾</div>
+          <div class="prod-row__info">
+            <h3>Arroz Basmati Premium</h3>
+            <p>Grano largo aromático · Costal 25 kg</p>
+          </div>
+          <span class="prod-row__tag">Granos</span>
+          <span class="prod-row__price">$125.00</span>
+          <span class="prod-row__unit">/ costal</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Arroz Basmati Premium','🌾','Granos','Arroz basmati de grano largo y aroma característico. Costal de 25 kg. Importado, extra añejo. Ideal para cocina árabe, hindú y restaurantes internacionales.','$125.00 / costal')">Detalle</button>
+        </div>
+
+        <div class="prod-row" data-cat="granos">
+          <div class="prod-row__emoji">🫘</div>
+          <div class="prod-row__info">
+            <h3>Frijol Peruano</h3>
+            <p>Cremoso · Sin impurezas · Costal 25 kg</p>
+          </div>
+          <span class="prod-row__tag">Granos</span>
+          <span class="prod-row__price">$85.00</span>
+          <span class="prod-row__unit">/ costal</span>
+          <button class="btn btn--sm-gold" onclick="openModal('Frijol Peruano','🫘','Granos','Frijol peruano cremoso, sin impurezas. Costal de 25 kg. Cosecha nueva. Alta absorción de sabores. Favorito de cocinas mexicanas de alta producción.','$85.00 / costal')">Detalle</button>
+        </div>
+
+      </div>
+      <p class="no-results" id="noResults" style="display:none">No se encontraron productos que coincidan con la búsqueda.</p>
+    </div>
+  </section>
+
+  <!-- EMPRESA -->
+  <section class="empresa" id="empresa">
+    <div class="container empresa__grid">
+      <div class="empresa__left">
+        <span class="section-label">Sobre nosotros</span>
+        <h2 class="section-title">Comprometidos con la calidad desde 2009</h2>
+        <p>AgroElite nació con la misión de ser el puente más confiable entre el productor y el negocio gastronómico. Con más de 15 años en el mercado, hemos construido una red de más de 80 productores certificados y una infraestructura logística capaz de abastecer a más de 200 clientes activos en la región.</p>
+        <p>Nuestra fortaleza está en la consistencia: el mismo producto, la misma calidad, el mismo servicio, semana tras semana.</p>
+        <div class="empresa__badges">
+          <div class="badge"><span>🏅</span> ISO 22000</div>
+          <div class="badge"><span>✅</span> COFEPRIS</div>
+          <div class="badge"><span>🌱</span> Comercio Justo</div>
+          <div class="badge"><span>🇲🇽</span> Hecho en México</div>
+        </div>
+      </div>
+      <div class="empresa__right">
+        <div class="empresa-stat-grid">
+          <div class="empresa-stat">
+            <span class="estat-num" data-target="500">0</span><span class="estat-sym">+</span>
+            <p>Productos en catálogo</p>
+          </div>
+          <div class="empresa-stat">
+            <span class="estat-num" data-target="200">0</span><span class="estat-sym">+</span>
+            <p>Clientes activos</p>
+          </div>
+          <div class="empresa-stat">
+            <span class="estat-num" data-target="80">0</span><span class="estat-sym">+</span>
+            <p>Productores aliados</p>
+          </div>
+          <div class="empresa-stat">
+            <span class="estat-num" data-target="98">0</span><span class="estat-sym">%</span>
+            <p>Entregas a tiempo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <div class="container">
+      <div class="section-head center">
+        <span class="section-label">Contáctanos</span>
+        <h2 class="section-title">Solicita tu cotización</h2>
+        <p class="section-desc">Completa el formulario y un asesor se pondrá en contacto en menos de 2 horas hábiles.</p>
+      </div>
+      <div class="contacto__grid">
+        <form class="contact-form" id="contactForm">
+          <div class="form-2col">
+            <div class="form-group">
+              <label>Nombre completo *</label>
+              <input type="text" placeholder="Ej. Juan Martínez" required />
+            </div>
+            <div class="form-group">
+              <label>Empresa / Negocio *</label>
+              <input type="text" placeholder="Ej. Restaurante La Mesa" required />
+            </div>
+          </div>
+          <div class="form-2col">
+            <div class="form-group">
+              <label>Correo electrónico *</label>
+              <input type="email" placeholder="juan@empresa.com" required />
+            </div>
+            <div class="form-group">
+              <label>Teléfono / WhatsApp</label>
+              <input type="tel" placeholder="+52 55 0000 0000" />
+            </div>
+          </div>
+          <div class="form-2col">
+            <div class="form-group">
+              <label>Tipo de negocio *</label>
+              <select required>
+                <option value="" disabled selected>Seleccionar...</option>
+                <option>Restaurante</option>
+                <option>Hotel</option>
+                <option>Cafetería</option>
+                <option>Supermercado</option>
+                <option>Comedor industrial</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Volumen aproximado</label>
+              <select>
+                <option value="" disabled selected>Seleccionar...</option>
+                <option>Pequeño (&lt;$5,000/mes)</option>
+                <option>Mediano ($5,000–$20,000/mes)</option>
+                <option>Grande ($20,000+/mes)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Productos de interés</label>
+            <textarea rows="4" placeholder="Describe los productos que necesitas, cantidades aproximadas y cualquier requerimiento especial..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--gold btn--full">Enviar solicitud de cotización</button>
+        </form>
+        <div class="contact-aside">
+          <div class="contact-aside__block">
+            <h4>Información de contacto</h4>
+            <ul>
+              <li><span>📞</span> +52 800 123 4567</li>
+              <li><span>✉️</span> ventas@agroelite.mx</li>
+              <li><span>📍</span> Blvd. Industrial 1200, Parque Empresarial Norte</li>
+              <li><span>🕐</span> Lunes a Sábado, 6am – 7pm</li>
+            </ul>
+          </div>
+          <div class="contact-aside__block">
+            <h4>¿Por qué elegirnos?</h4>
+            <ul class="why-list">
+              <li><span class="check">✓</span> Sin mínimos de pedido rígidos</li>
+              <li><span class="check">✓</span> Cadena de frío garantizada</li>
+              <li><span class="check">✓</span> Facturación electrónica</li>
+              <li><span class="check">✓</span> Asesor dedicado 24/7</li>
+              <li><span class="check">✓</span> Crédito a clientes frecuentes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__mark logo__mark--sm">AE</div>
+        <div>
+          <strong class="footer__name">AgroElite</strong>
+          <p>Proveedora de Alimentos Premium</p>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <strong>Empresa</strong>
+          <a href="#">Nosotros</a>
+          <a href="#">Proceso</a>
+          <a href="#">Certificaciones</a>
+        </div>
+        <div>
+          <strong>Catálogo</strong>
+          <a href="#">Frutas y Verduras</a>
+          <a href="#">Carnes</a>
+          <a href="#">Pescados</a>
+        </div>
+        <div>
+          <strong>Contacto</strong>
+          <a href="#">Cotización</a>
+          <a href="#">WhatsApp</a>
+          <a href="#">Soporte</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© 2026 AgroElite. Todos los derechos reservados.</p>
+      <div class="footer__legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal()">✕</button>
+      <div class="modal__header">
+        <div class="modal__emoji" id="modalEmoji"></div>
+        <div>
+          <span class="modal__cat" id="modalCat"></span>
+          <h3 id="modalTitle"></h3>
+        </div>
+      </div>
+      <p id="modalDesc"></p>
+      <div class="modal__price-row">
+        <span class="modal__price-label">Precio referencial:</span>
+        <span class="modal__price" id="modalPrice"></span>
+      </div>
+      <p class="modal__note">* Los precios pueden variar según volumen y temporada. Solicita cotización formal.</p>
+      <button class="btn btn--gold btn--full" onclick="closeModal()">Solicitar cotización</button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">Solicitud enviada. Te contactaremos en breve.</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
