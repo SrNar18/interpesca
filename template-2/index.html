@@ -30,24 +30,32 @@
       </div>
       <nav class="nav" id="nav">
         <a href="#inicio">Inicio</a>
-        <a href="#productos">Productos</a>
+        <a href="#productos">Categorías</a>
         <a href="#proceso">Nuestro Proceso</a>
         <a href="#testimonios">Clientes</a>
         <a href="#contacto">Contacto</a>
       </nav>
+      <div class="header__social">
+        <a href="#" aria-label="Instagram"><img src="../img/instagram.png" alt="Instagram" /></a>
+        <a href="#" aria-label="Facebook"><img src="../img/facebook.png" alt="Facebook" /></a>
+        <a href="#" aria-label="Twitter"><img src="../img/twitter.png" alt="Twitter" /></a>
+      </div>
       <button class="hamburger" id="hamburger">&#9776;</button>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO con video de fondo -->
   <section class="hero" id="inicio">
+    <video class="hero__video" autoplay muted loop playsinline>
+      <source src="../hero.mp4" type="video/mp4" />
+    </video>
     <div class="hero__overlay"></div>
     <div class="container hero__content">
       <span class="hero__ribbon">Del campo a tu mesa</span>
       <h1 class="hero__title">Alimentos auténticos,<br/><em>sabor que inspira</em></h1>
       <p class="hero__desc">Proveemos frutas, verduras, carnes y más con la frescura y calidad que tu negocio necesita. Directamente de productores locales.</p>
       <div class="hero__actions">
-        <a href="#productos" class="btn btn--primary">Explorar catálogo</a>
+        <a href="#productos" class="btn btn--primary">Explorar categorías</a>
         <a href="#contacto" class="btn btn--ghost">Hablar con un asesor</a>
       </div>
     </div>
@@ -64,204 +72,74 @@
     </div>
   </div>
 
-  <!-- PRODUCTOS -->
+  <!-- CATEGORÍAS -->
   <section class="productos" id="productos">
     <div class="container">
       <div class="section-header">
         <p class="section-label">Nuestro catálogo</p>
-        <h2 class="section-title">Productos de temporada</h2>
+        <h2 class="section-title">Lo que ofrecemos</h2>
       </div>
+      <div class="cat-showcase">
 
-      <!-- FILTROS -->
-      <div class="filtros" id="filtros">
-        <button class="filtro active" data-filter="todos">Todos</button>
-        <button class="filtro" data-filter="frutas">Frutas</button>
-        <button class="filtro" data-filter="verduras">Verduras</button>
-        <button class="filtro" data-filter="carnes">Carnes</button>
-        <button class="filtro" data-filter="lacteos">Lácteos</button>
-        <button class="filtro" data-filter="pescados">Pescados</button>
-        <button class="filtro" data-filter="granos">Granos</button>
-      </div>
-
-      <!-- BUSCADOR -->
-      <div class="buscador">
-        <input type="text" id="searchInput" placeholder="Buscar en el catálogo..." />
-      </div>
-
-      <!-- GRID -->
-      <div class="prod-grid" id="prodGrid">
-
-        <div class="prod-card" data-cat="frutas">
-          <div class="prod-card__badge">Frutas</div>
-          <div class="prod-card__emoji">🍎</div>
-          <div class="prod-card__body">
-            <h3>Manzana Roja</h3>
-            <p>Calibre 80-90. Caja 18 kg. Valle Central.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$42 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Manzana Roja','🍎','Manzanas de primera calidad, calibre 80-90. Presentación: caja de 18 kg. Origen: Valle Central. Disponibilidad: todo el año. Ideal para servicios de hotel y restaurante.','$42.00 / caja')">Ver más</button>
-            </div>
-          </div>
+        <div class="cat-item">
+          <div class="cat-item__emoji">🍎</div>
+          <h3>Frutas Frescas</h3>
+          <p>Amplia selección de frutas de temporada y disponibilidad anual, directas del productor.</p>
+          <button class="btn btn--sm" onclick="openModal('Frutas Frescas','🍎','Contamos con una amplia variedad de frutas frescas: manzanas, plátanos, fresas, mangos, uvas, cítricos y muchas más. Trabajamos con productores locales e importadores certificados. Disponibles en presentaciones de mayoreo adaptadas a tu negocio.')">Ver más</button>
         </div>
 
-        <div class="prod-card" data-cat="frutas">
-          <div class="prod-card__badge">Frutas</div>
-          <div class="prod-card__emoji">🍋</div>
-          <div class="prod-card__body">
-            <h3>Limón Persa</h3>
-            <p>Sin semilla, jugoso. Caja 20 kg. Región tropical.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$30 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Limón Persa','🍋','Limón persa sin semilla, tamaño uniforme. Caja de 20 kg. Origen: región tropical. Alto contenido de jugo. Ideal para bebidas y cocina gourmet.','$30.00 / caja')">Ver más</button>
-            </div>
-          </div>
+        <div class="cat-item">
+          <div class="cat-item__emoji">🥦</div>
+          <h3>Verduras y Hortalizas</h3>
+          <p>Verduras frescas cosechadas diariamente, con opciones hidropónicas y orgánicas certificadas.</p>
+          <button class="btn btn--sm" onclick="openModal('Verduras y Hortalizas','🥦','Ofrecemos verduras frescas de primera calidad: lechugas, jitomates, brócoli, cebollas, zanahorias, chiles, ajos, elotes y mucho más. Cosecha diaria en muchas variedades, con opciones hidropónicas y cultivos certificados para la mayor frescura.')">Ver más</button>
         </div>
 
-        <div class="prod-card" data-cat="frutas">
-          <div class="prod-card__badge">Frutas</div>
-          <div class="prod-card__emoji">🥭</div>
-          <div class="prod-card__body">
-            <h3>Mango Ataulfo</h3>
-            <p>Mango dulce premium. Caja 10 kg. Temporada alta.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$55 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Mango Ataulfo','🥭','Mango ataulfo de primera calidad, dulce y sin fibra. Caja de 10 kg. Cosecha de temporada alta. Maduro en punto.','$55.00 / caja')">Ver más</button>
-            </div>
-          </div>
+        <div class="cat-item">
+          <div class="cat-item__emoji">🥩</div>
+          <h3>Carnes y Aves</h3>
+          <p>Carnes frescas y refrigeradas de res, cerdo y pollo procesadas en plantas certificadas.</p>
+          <button class="btn btn--sm" onclick="openModal('Carnes y Aves','🥩','Distribuimos carnes frescas y refrigeradas procesadas en plantas certificadas: pollo en diferentes cortes, res, cerdo y embutidos. Toda nuestra carne cuenta con trazabilidad completa y cadena de frío garantizada desde el origen.')">Ver más</button>
         </div>
 
-        <div class="prod-card" data-cat="verduras">
-          <div class="prod-card__badge">Verduras</div>
-          <div class="prod-card__emoji">🥬</div>
-          <div class="prod-card__body">
-            <h3>Lechuga Orejona</h3>
-            <p>Cabezas grandes y crujientes. Caja 12 piezas.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$28 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Lechuga Orejona','🥬','Lechuga orejona de cabezas grandes y crujientes. Caja de 12 piezas. Cortada el mismo día. Sin tierra ni daños.','$28.00 / caja')">Ver más</button>
-            </div>
-          </div>
+        <div class="cat-item">
+          <div class="cat-item__emoji">🧀</div>
+          <h3>Lácteos</h3>
+          <p>Quesos, leche, mantequilla, crema y más, con temperatura controlada en cada etapa.</p>
+          <button class="btn btn--sm" onclick="openModal('Lácteos','🧀','Amplia línea de productos lácteos: quesos de diferentes variedades, leche pasteurizada, mantequilla, crema para batir, yogur y más. Temperatura controlada desde el origen hasta la entrega. Opciones artesanales e industriales disponibles.')">Ver más</button>
         </div>
 
-        <div class="prod-card" data-cat="verduras">
-          <div class="prod-card__badge">Verduras</div>
-          <div class="prod-card__emoji">🍅</div>
-          <div class="prod-card__body">
-            <h3>Jitomate Saladette</h3>
-            <p>Jitomate maduro, sin defectos. Caja 10 kg.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$38 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Jitomate Saladette','🍅','Jitomate saladette maduro y firme, sin defectos. Caja de 10 kg. Cosecha directa. Color rojo uniforme. Bajo desperdicio.','$38.00 / caja')">Ver más</button>
-            </div>
-          </div>
+        <div class="cat-item">
+          <div class="cat-item__emoji">🐟</div>
+          <h3>Pescados y Mariscos</h3>
+          <p>Filetes frescos y mariscos congelados IQF, con certificación de origen y cadena de frío.</p>
+          <button class="btn btn--sm" onclick="openModal('Pescados y Mariscos','🐟','Filetes frescos, lomos y mariscos congelados IQF: tilapia, atún, salmón, camarones y más. Todos nuestros productos del mar cuentan con certificación de origen y se mantienen en cadena de frío ininterrumpida hasta la entrega.')">Ver más</button>
         </div>
 
-        <div class="prod-card" data-cat="verduras">
-          <div class="prod-card__badge">Verduras</div>
-          <div class="prod-card__emoji">🥕</div>
-          <div class="prod-card__body">
-            <h3>Zanahoria Baby</h3>
-            <p>Zanahoria miniatura lista. Bolsa 1 kg.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$15 / bolsa</span>
-              <button class="btn btn--sm" onclick="openModal('Zanahoria Baby','🥕','Zanahoria baby lavada y lista para usar. Bolsa de 1 kg. Sabor dulce y textura firme. Ideal para ensaladas y guarniciones.','$15.00 / bolsa')">Ver más</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="prod-card" data-cat="carnes">
-          <div class="prod-card__badge">Carnes</div>
-          <div class="prod-card__emoji">🍗</div>
-          <div class="prod-card__body">
-            <h3>Muslo de Pollo</h3>
-            <p>Muslos con hueso, refrigerado. Caja 10 kg.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$72 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Muslo de Pollo','🍗','Muslos de pollo con hueso, refrigerado. Caja de 10 kg. Planta certificada NOM. Sin aditivos. Gran rendimiento para cocina industrial.','$72.00 / caja')">Ver más</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="prod-card" data-cat="carnes">
-          <div class="prod-card__badge">Carnes</div>
-          <div class="prod-card__emoji">🥓</div>
-          <div class="prod-card__body">
-            <h3>Tocino Ahumado</h3>
-            <p>Tocino en tiras, ahumado natural. Caja 5 kg.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$130 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Tocino Ahumado','🥓','Tocino en tiras gruesas con ahumado natural. Caja de 5 kg. Sin colorantes artificiales. Ideal para desayunos y hamburguesas gourmet.','$130.00 / caja')">Ver más</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="prod-card" data-cat="lacteos">
-          <div class="prod-card__badge">Lácteos</div>
-          <div class="prod-card__emoji">🧈</div>
-          <div class="prod-card__body">
-            <h3>Mantequilla sin sal</h3>
-            <p>Mantequilla premium 82% grasa. Caja 10 kg.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$210 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Mantequilla sin sal','🧈','Mantequilla sin sal, 82% materia grasa. Caja de 10 kg (piezas 1 kg). Ideal para repostería y cocina gourmet. Sin conservadores.','$210.00 / caja')">Ver más</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="prod-card" data-cat="lacteos">
-          <div class="prod-card__badge">Lácteos</div>
-          <div class="prod-card__emoji">🍦</div>
-          <div class="prod-card__body">
-            <h3>Crema para batir</h3>
-            <p>35% grasa, para montar. Litro.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$45 / litro</span>
-              <button class="btn btn--sm" onclick="openModal('Crema para batir','🍦','Crema para batir con 35% de grasa. Presentación de 1 litro. Monta perfectamente. Ideal para postres y bebidas. Refrigeración constante.','$45.00 / litro')">Ver más</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="prod-card" data-cat="pescados">
-          <div class="prod-card__badge">Pescados</div>
-          <div class="prod-card__emoji">🐠</div>
-          <div class="prod-card__body">
-            <h3>Atún en Lomo</h3>
-            <p>Lomo limpio de atún fresco. Pieza 2–3 kg.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$180 / pieza</span>
-              <button class="btn btn--sm" onclick="openModal('Atún en Lomo','🐠','Lomo limpio de atún fresco, sin piel ni espinas. Pieza de 2 a 3 kg. Captura del Pacífico. Ideal para sashimi, tataki y cocina de autor.','$180.00 / pieza')">Ver más</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="prod-card" data-cat="granos">
-          <div class="prod-card__badge">Granos</div>
-          <div class="prod-card__emoji">🌿</div>
-          <div class="prod-card__body">
-            <h3>Lenteja Verde</h3>
-            <p>Sin impurezas, calibrada. Costal 25 kg.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$65 / costal</span>
-              <button class="btn btn--sm" onclick="openModal('Lenteja Verde','🌿','Lenteja verde calibrada y sin impurezas. Costal de 25 kg. Cosecha nueva. Alto contenido proteico. Gran rendimiento para cocina de volumen.','$65.00 / costal')">Ver más</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="prod-card" data-cat="granos">
-          <div class="prod-card__badge">Granos</div>
-          <div class="prod-card__emoji">🫙</div>
-          <div class="prod-card__body">
-            <h3>Garbanzo Extra</h3>
-            <p>Garbanzo de exportación. Costal 25 kg.</p>
-            <div class="prod-card__bottom">
-              <span class="prod-price">$90 / costal</span>
-              <button class="btn btn--sm" onclick="openModal('Garbanzo Extra','🫙','Garbanzo de calibre extra, listo para exportación. Costal de 25 kg. Color uniforme, sin manchas. Alto contenido proteico.','$90.00 / costal')">Ver más</button>
-            </div>
-          </div>
+        <div class="cat-item">
+          <div class="cat-item__emoji">🌾</div>
+          <h3>Granos y Cereales</h3>
+          <p>Arroz, frijol, lenteja, garbanzo y más, sin impurezas y en presentaciones para alto volumen.</p>
+          <button class="btn btn--sm" onclick="openModal('Granos y Cereales','🌾','Granos básicos de alto rendimiento y calidad: arroz en diferentes variedades, frijol, lenteja, garbanzo, maíz y más. Disponibles en presentaciones de costal para cocina de alto volumen. Sin impurezas y con excelente vida de anaquel.')">Ver más</button>
         </div>
 
       </div>
-      <p class="no-results" id="noResults" style="display:none">No se encontraron productos.</p>
+    </div>
+  </section>
+
+  <!-- DESCARGA CATÁLOGO PDF -->
+  <section class="pdf-banner">
+    <div class="container pdf-banner__inner">
+      <div class="pdf-banner__left">
+        <div class="pdf-banner__icon">📋</div>
+        <div>
+          <h2 class="pdf-banner__title">Descarga nuestro catálogo completo en PDF</h2>
+          <p class="pdf-banner__desc">Consulta todos nuestros productos, presentaciones y precios de mayoreo desde cualquier dispositivo. Ideal para planear tus pedidos.</p>
+        </div>
+      </div>
+      <a href="#" class="btn pdf-banner__btn" download>
+        📥 Descargar catálogo PDF
+      </a>
     </div>
   </section>
 
@@ -373,7 +251,7 @@
           <option>Mercado / Tienda</option>
           <option>Otro</option>
         </select>
-        <textarea rows="4" placeholder="¿Qué productos necesitas? Cuéntanos..."></textarea>
+        <textarea rows="4" placeholder="¿Qué categorías te interesan? Cuéntanos..."></textarea>
         <button type="submit" class="btn btn--primary btn--block">Enviar cotización</button>
       </form>
     </div>
@@ -388,7 +266,7 @@
       </div>
       <div class="footer__links">
         <a href="#">Inicio</a>
-        <a href="#">Catálogo</a>
+        <a href="#">Categorías</a>
         <a href="#">Proceso</a>
         <a href="#">Contacto</a>
       </div>
@@ -401,11 +279,9 @@
     <div class="modal">
       <button class="modal__close" onclick="closeModal()">✕</button>
       <div class="modal__emoji" id="modalEmoji"></div>
-      <span class="modal__badge" id="modalBadge"></span>
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
-      <strong class="modal__price" id="modalPrice"></strong>
-      <p class="modal__info">Este catálogo es solo informativo. Para adquirir este producto, <a href="#contacto" onclick="closeModal()">contáctanos</a> y un asesor te atenderá.</p>
+      <p class="modal__info">Para conocer disponibilidad y precios, <a href="#contacto" onclick="closeModal()">contáctanos</a> y un asesor te atenderá.</p>
     </div>
   </div>
 

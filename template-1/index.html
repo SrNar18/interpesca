@@ -9,7 +9,7 @@
 <body>
 
   <!-- HEADER -->
-  <header class="header">
+  <header class="header" id="header">
     <div class="container header__inner">
       <div class="logo">
         <span class="logo__icon">🌿</span>
@@ -17,29 +17,36 @@
       </div>
       <nav class="nav" id="nav">
         <a href="#inicio">Inicio</a>
-        <a href="#categorias">Categorías</a>
-        <a href="#catalogo">Catálogo</a>
+        <a href="#catalogo">Categorías</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
       </nav>
+      <div class="header__social">
+        <a href="#" aria-label="Instagram"><img src="../img/instagram.png" alt="Instagram" /></a>
+        <a href="#" aria-label="Facebook"><img src="../img/facebook.png" alt="Facebook" /></a>
+        <a href="#" aria-label="Twitter"><img src="../img/twitter.png" alt="Twitter" /></a>
+      </div>
       <button class="hamburger" id="hamburger" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO con video de fondo -->
   <section class="hero" id="inicio">
+    <video class="hero__video" autoplay muted loop playsinline>
+      <source src="../hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero__overlay"></div>
     <div class="container hero__content">
       <p class="hero__badge">Proveedor mayorista certificado</p>
       <h1 class="hero__title">Alimentos frescos directo al <span>mejor precio</span></h1>
       <p class="hero__subtitle">Distribuimos frutas, verduras, carnes, lácteos y más para restaurantes, hoteles y empresas en toda la región.</p>
       <div class="hero__ctas">
-        <a href="#catalogo" class="btn btn--primary">Ver catálogo</a>
+        <a href="#catalogo" class="btn btn--primary">Ver categorías</a>
         <a href="#contacto" class="btn btn--outline">Solicitar cotización</a>
       </div>
     </div>
-    <div class="hero__bg"></div>
   </section>
 
   <!-- STATS -->
@@ -65,245 +72,71 @@
   </section>
 
   <!-- CATEGORÍAS -->
-  <section class="categorias" id="categorias">
+  <section class="catalogo" id="catalogo">
     <div class="container">
       <h2 class="section-title">Nuestras Categorías</h2>
-      <p class="section-sub">Selecciona una categoría para filtrar el catálogo</p>
-      <div class="cat-grid">
-        <button class="cat-card active" data-filter="todos">
-          <span class="cat-card__icon">🍽️</span>
-          <span>Todos</span>
-        </button>
-        <button class="cat-card" data-filter="frutas">
-          <span class="cat-card__icon">🍎</span>
-          <span>Frutas</span>
-        </button>
-        <button class="cat-card" data-filter="verduras">
-          <span class="cat-card__icon">🥦</span>
-          <span>Verduras</span>
-        </button>
-        <button class="cat-card" data-filter="carnes">
-          <span class="cat-card__icon">🥩</span>
-          <span>Carnes</span>
-        </button>
-        <button class="cat-card" data-filter="lacteos">
-          <span class="cat-card__icon">🧀</span>
-          <span>Lácteos</span>
-        </button>
-        <button class="cat-card" data-filter="pescados">
-          <span class="cat-card__icon">🐟</span>
-          <span>Pescados</span>
-        </button>
-        <button class="cat-card" data-filter="granos">
-          <span class="cat-card__icon">🌾</span>
-          <span>Granos</span>
-        </button>
+      <p class="section-sub">Descubre la variedad de productos que tenemos disponibles para tu negocio</p>
+      <div class="cat-showcase">
+
+        <div class="cat-item">
+          <div class="cat-item__icon">🍎</div>
+          <h3>Frutas Frescas</h3>
+          <p>Amplia selección de frutas de temporada y disponibilidad anual, directas del productor.</p>
+          <button class="btn btn--sm" onclick="openModal('Frutas Frescas', '🍎', 'Contamos con una amplia variedad de frutas frescas: manzanas, plátanos, fresas, mangos, uvas, cítricos y muchas más. Trabajamos con productores locales e importadores certificados. Disponibles en presentaciones de mayoreo adaptadas a tu negocio.')">Ver más</button>
+        </div>
+
+        <div class="cat-item">
+          <div class="cat-item__icon">🥦</div>
+          <h3>Verduras y Hortalizas</h3>
+          <p>Verduras frescas cosechadas diariamente, con opciones hidropónicas y cultivos certificados.</p>
+          <button class="btn btn--sm" onclick="openModal('Verduras y Hortalizas', '🥦', 'Ofrecemos verduras frescas de primera calidad: lechugas, jitomates, brócoli, cebollas, zanahorias, chiles, ajos, elotes y mucho más. Cosecha diaria en muchas variedades, con opciones hidropónicas y orgánicas certificadas.')">Ver más</button>
+        </div>
+
+        <div class="cat-item">
+          <div class="cat-item__icon">🥩</div>
+          <h3>Carnes y Aves</h3>
+          <p>Carnes frescas y refrigeradas de res, cerdo y pollo, procesadas en plantas certificadas.</p>
+          <button class="btn btn--sm" onclick="openModal('Carnes y Aves', '🥩', 'Distribuimos carnes frescas y refrigeradas procesadas en plantas certificadas: pollo en diferentes cortes, res, cerdo y embutidos. Toda nuestra carne cuenta con trazabilidad completa y cadena de frío garantizada desde el origen.')">Ver más</button>
+        </div>
+
+        <div class="cat-item">
+          <div class="cat-item__icon">🧀</div>
+          <h3>Lácteos</h3>
+          <p>Quesos, leche, mantequilla, crema y más, con temperatura controlada en cada etapa.</p>
+          <button class="btn btn--sm" onclick="openModal('Lácteos', '🧀', 'Amplia línea de productos lácteos: quesos de diferentes variedades, leche pasteurizada, mantequilla, crema para batir, yogur y más. Temperatura controlada desde el origen hasta la entrega. Opciones artesanales e industriales disponibles.')">Ver más</button>
+        </div>
+
+        <div class="cat-item">
+          <div class="cat-item__icon">🐟</div>
+          <h3>Pescados y Mariscos</h3>
+          <p>Filetes y mariscos frescos y congelados IQF con certificación de origen y cadena de frío.</p>
+          <button class="btn btn--sm" onclick="openModal('Pescados y Mariscos', '🐟', 'Filetes frescos, lomos y mariscos congelados IQF: tilapia, atún, salmón, camarones y más. Todos nuestros productos del mar cuentan con certificación de origen y se mantienen en cadena de frío ininterrumpida hasta la entrega.')">Ver más</button>
+        </div>
+
+        <div class="cat-item">
+          <div class="cat-item__icon">🌾</div>
+          <h3>Granos y Cereales</h3>
+          <p>Arroz, frijol, lenteja, garbanzo y más, sin impurezas y en presentaciones para alto volumen.</p>
+          <button class="btn btn--sm" onclick="openModal('Granos y Cereales', '🌾', 'Granos básicos de alto rendimiento y calidad: arroz en diferentes variedades, frijol, lenteja, garbanzo, maíz y más. Disponibles en presentaciones de costal para cocina de alto volumen. Sin impurezas y con excelente vida de anaquel.')">Ver más</button>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CATÁLOGO -->
-  <section class="catalogo" id="catalogo">
-    <div class="container">
-      <div class="catalogo__header">
-        <h2 class="section-title">Catálogo de Productos</h2>
-        <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Buscar producto..." />
-          <span class="search-icon">🔍</span>
+  <!-- DESCARGA CATÁLOGO PDF -->
+  <section class="pdf-banner">
+    <div class="container pdf-banner__inner">
+      <div class="pdf-banner__left">
+        <div class="pdf-banner__icon">📋</div>
+        <div>
+          <h2 class="pdf-banner__title">Descarga nuestro catálogo completo en PDF</h2>
+          <p class="pdf-banner__desc">Consulta todos nuestros productos, presentaciones y precios de mayoreo desde cualquier dispositivo. Ideal para planear tus pedidos.</p>
         </div>
       </div>
-      <div class="products-grid" id="productsGrid">
-
-        <!-- FRUTAS -->
-        <div class="product-card" data-cat="frutas">
-          <div class="product-card__img" style="background:#e8f5e9">🍎</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Frutas</span>
-            <h3>Manzana Roja</h3>
-            <p>Manzanas de primera calidad, calibre 80-90. Caja de 18 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$42.00 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Manzana Roja', 'Manzanas de primera calidad, calibre 80-90. Presentación: caja de 18 kg. Origen: Valle Central. Disponibilidad: todo el año.', '🍎', '$42.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="frutas">
-          <div class="product-card__img" style="background:#fff8e1">🍌</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Frutas</span>
-            <h3>Plátano de Mesa</h3>
-            <p>Racimos de plátano fresco, punto óptimo de maduración. Caja 20 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$28.00 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Plátano de Mesa', 'Racimos frescos con punto óptimo de maduración. Caja 20 kg. Variedad Cavendish. Origen: Costa tropical.', '🍌', '$28.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="frutas">
-          <div class="product-card__img" style="background:#fce4ec">🍓</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Frutas</span>
-            <h3>Fresa Premium</h3>
-            <p>Fresas calibradas, sin defectos. Charola de 1 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$18.00 / charola</span>
-              <button class="btn btn--sm" onclick="openModal('Fresa Premium', 'Fresas calibradas sin defectos. Charola de 1 kg. Grado exportación. Ideal para repostería y servicio.', '🍓', '$18.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- VERDURAS -->
-        <div class="product-card" data-cat="verduras">
-          <div class="product-card__img" style="background:#e8f5e9">🥦</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Verduras</span>
-            <h3>Brócoli Fresco</h3>
-            <p>Cabezas compactas de brócoli, sin amarillamiento. Caja 5 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$22.00 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Brócoli Fresco', 'Cabezas compactas sin amarillamiento. Caja de 5 kg. Cosecha diaria. Cultivo hidropónico certificado.', '🥦', '$22.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="verduras">
-          <div class="product-card__img" style="background:#fff9c4">🌽</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Verduras</span>
-            <h3>Elote Tierno</h3>
-            <p>Elotes recién cortados, dulces y tiernos. Costal de 50 piezas.</p>
-            <div class="product-card__footer">
-              <span class="price">$35.00 / costal</span>
-              <button class="btn btn--sm" onclick="openModal('Elote Tierno', 'Elotes recién cortados, dulces y tiernos. Costal de 50 piezas. Ideal para cocina industrial y restaurantes.', '🌽', '$35.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="verduras">
-          <div class="product-card__img" style="background:#f3e5f5">🧅</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Verduras</span>
-            <h3>Cebolla Blanca</h3>
-            <p>Cebolla blanca seleccionada, calibre uniforme. Costal 25 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$19.00 / costal</span>
-              <button class="btn btn--sm" onclick="openModal('Cebolla Blanca', 'Cebolla blanca seleccionada de calibre uniforme. Costal de 25 kg. Sin brotes ni hongos. Larga vida de anaquel.', '🧅', '$19.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARNES -->
-        <div class="product-card" data-cat="carnes">
-          <div class="product-card__img" style="background:#ffebee">🥩</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Carnes</span>
-            <h3>Pechuga de Pollo</h3>
-            <p>Pechuga entera sin hueso, refrigerada. Caja 10 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$95.00 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Pechuga de Pollo', 'Pechuga entera sin hueso, refrigerada. Caja de 10 kg. Procesada en planta certificada. Sin antibióticos.', '🥩', '$95.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="carnes">
-          <div class="product-card__img" style="background:#ffebee">🐄</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Carnes</span>
-            <h3>Carne Molida Res</h3>
-            <p>Carne molida 80/20, fresca del día. Caja 5 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$120.00 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Carne Molida Res', 'Carne molida 80/20 (magro/grasa), fresca del día. Caja de 5 kg. Ideal para cocina profesional y bufetes.', '🐄', '$120.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- LÁCTEOS -->
-        <div class="product-card" data-cat="lacteos">
-          <div class="product-card__img" style="background:#e3f2fd">🧀</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Lácteos</span>
-            <h3>Queso Manchego</h3>
-            <p>Bloque de queso manchego artesanal. Pieza de 3 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$88.00 / pieza</span>
-              <button class="btn btn--sm" onclick="openModal('Queso Manchego', 'Bloque de queso manchego artesanal. Pieza de 3 kg. Maduración 30 días. Sin conservadores artificiales.', '🧀', '$88.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="lacteos">
-          <div class="product-card__img" style="background:#e3f2fd">🥛</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Lácteos</span>
-            <h3>Leche Entera</h3>
-            <p>Leche entera pasteurizada. Caja de 12 litros (bolsas 1 L).</p>
-            <div class="product-card__footer">
-              <span class="price">$55.00 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Leche Entera', 'Leche entera pasteurizada. Caja de 12 bolsas de 1 L. Temperatura controlada en todo momento. Alta vida útil.', '🥛', '$55.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- PESCADOS -->
-        <div class="product-card" data-cat="pescados">
-          <div class="product-card__img" style="background:#e0f7fa">🐟</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Pescados</span>
-            <h3>Filete de Tilapia</h3>
-            <p>Filete de tilapia fresco, sin espinas. Caja 5 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$110.00 / caja</span>
-              <button class="btn btn--sm" onclick="openModal('Filete de Tilapia', 'Filete de tilapia fresco sin espinas. Caja de 5 kg. Proveniente de cultivos acuícolas certificados. Entrega en frío.', '🐟', '$110.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="pescados">
-          <div class="product-card__img" style="background:#e0f7fa">🦐</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Pescados</span>
-            <h3>Camarón Mediano</h3>
-            <p>Camarón 31/40, limpio y desvenado. Bolsa 1 kg congelado.</p>
-            <div class="product-card__footer">
-              <span class="price">$145.00 / bolsa</span>
-              <button class="btn btn--sm" onclick="openModal('Camarón Mediano', 'Camarón talla 31/40, limpio y desvenado. Bolsa de 1 kg congelado IQF. Listo para cocinar. Sin aditivos.', '🦐', '$145.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- GRANOS -->
-        <div class="product-card" data-cat="granos">
-          <div class="product-card__img" style="background:#fff8e1">🌾</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Granos</span>
-            <h3>Arroz Blanco Grano Largo</h3>
-            <p>Arroz grano largo, pulido extra. Costal 25 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$48.00 / costal</span>
-              <button class="btn btn--sm" onclick="openModal('Arroz Blanco Grano Largo', 'Arroz grano largo pulido extra. Costal de 25 kg. Sin impurezas. Ideal para servicio a gran escala.', '🌾', '$48.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="granos">
-          <div class="product-card__img" style="background:#efebe9">🫘</div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Granos</span>
-            <h3>Frijol Negro</h3>
-            <p>Frijol negro seleccionado, sin piedras. Costal 25 kg.</p>
-            <div class="product-card__footer">
-              <span class="price">$72.00 / costal</span>
-              <button class="btn btn--sm" onclick="openModal('Frijol Negro', 'Frijol negro seleccionado sin piedras ni impurezas. Costal de 25 kg. Cosecha nueva. Excelente rendimiento.', '🫘', '$72.00')">Ver detalle</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <p class="no-results" id="noResults" style="display:none">No se encontraron productos.</p>
+      <a href="#" class="btn pdf-banner__btn" download>
+        📥 Descargar catálogo PDF
+      </a>
     </div>
   </section>
 
@@ -368,7 +201,7 @@
           <option>Supermercado</option>
           <option>Otro</option>
         </select>
-        <textarea rows="4" placeholder="¿Qué productos te interesan? Cuéntanos sobre tus necesidades..."></textarea>
+        <textarea rows="4" placeholder="¿Qué categorías te interesan? Cuéntanos sobre tus necesidades..."></textarea>
         <button type="submit" class="btn btn--primary btn--large">Enviar solicitud</button>
       </form>
     </div>
@@ -397,8 +230,7 @@
       <div class="modal__icon" id="modalIcon"></div>
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
-      <div class="modal__price" id="modalPrice"></div>
-      <p class="modal__info">Este catálogo es solo informativo. Para adquirir este producto, <a href="#contacto" onclick="closeModal()">contáctanos</a> y un asesor te atenderá.</p>
+      <p class="modal__info">Para conocer disponibilidad y precios, <a href="#contacto" onclick="closeModal()">contáctanos</a> y un asesor te atenderá.</p>
     </div>
   </div>
 
