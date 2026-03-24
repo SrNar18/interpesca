@@ -91,9 +91,9 @@ a { text-decoration: none; color: inherit; }
 }
 .nav__link--cta:hover { background: var(--gold-light); color: #fff; }
 .header__social { display: flex; gap: .5rem; align-items: center; }
-.header__social a { display: flex; align-items: center; opacity: .6; transition: opacity .2s; }
-.header__social a:hover { opacity: 1; }
-.header__social img { width: 20px; height: 20px; object-fit: contain; filter: brightness(10); }
+.header__social a { display: flex; align-items: center; opacity: 1; transition: opacity .2s; }
+.header__social a:hover { opacity: .75; }
+.header__social img { width: 22px; height: 22px; object-fit: contain; filter: brightness(10); }
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
 .hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,.8); border-radius: 2px; transition: all .3s; }
 
