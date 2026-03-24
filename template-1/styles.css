@@ -7,14 +7,14 @@ a { text-decoration: none; color: inherit; }
 
 /* ===== VARIABLES ===== */
 :root {
-  --green: #2e7d32;
-  --green-light: #4caf50;
-  --green-pale: #e8f5e9;
-  --accent: #ff6f00;
-  --gray: #f5f5f5;
-  --text-muted: #666;
+  --green: #2c3e55;
+  --green-light: #4a6278;
+  --green-pale: #eef2f7;
+  --accent: #c8373a;
+  --gray: #f0f4f8;
+  --text-muted: #5a6a7a;
   --radius: 12px;
-  --shadow: 0 4px 20px rgba(0,0,0,.08);
+  --shadow: 0 4px 20px rgba(44,62,85,.08);
 }
 
 /* ===== UTILITIES ===== */
@@ -58,13 +58,13 @@ a { text-decoration: none; color: inherit; }
 .hero {
   position: relative; min-height: 88vh;
   display: flex; align-items: center;
-  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 50%, #fff 100%);
+  background: linear-gradient(135deg, #eef2f7 0%, #f4f7fb 50%, #fff 100%);
   overflow: hidden;
 }
 .hero__bg {
   position: absolute; right: -10%; top: 50%; transform: translateY(-50%);
   width: 550px; height: 550px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(76,175,80,.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(44,62,85,.12) 0%, transparent 70%);
   pointer-events: none;
 }
 .hero__content { position: relative; z-index: 1; max-width: 650px; }
@@ -153,7 +153,7 @@ a { text-decoration: none; color: inherit; }
 .feature-card p { font-size: .85rem; color: var(--text-muted); }
 
 /* ===== CONTACTO ===== */
-.contacto { padding: 5rem 0; background: linear-gradient(135deg, #1b5e20, #2e7d32); }
+.contacto { padding: 5rem 0; background: linear-gradient(135deg, #1a2535, #2c3e55); }
 .contacto__inner { max-width: 700px; margin: 0 auto; text-align: center; }
 .contact-form { display: flex; flex-direction: column; gap: 1rem; text-align: left; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }

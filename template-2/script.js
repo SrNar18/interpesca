@@ -6,7 +6,7 @@ hamburger.addEventListener('click', () => nav.classList.toggle('open'));
 // ===== STICKY HEADER SHADOW =====
 window.addEventListener('scroll', () => {
   document.getElementById('header').style.boxShadow =
-    window.scrollY > 10 ? '0 4px 20px rgba(93,58,26,.15)' : '0 2px 12px rgba(93,58,26,.08)';
+    window.scrollY > 10 ? '0 4px 20px rgba(44,62,85,.15)' : '0 2px 12px rgba(44,62,85,.08)';
 });
 
 // ===== FILTER =====
