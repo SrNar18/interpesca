@@ -264,17 +264,6 @@ a { text-decoration: none; color: inherit; }
 .modal__info { font-size: .85rem; color: var(--text-muted); background: var(--gray-bg); border-left: 3px solid var(--gold); padding: .75rem 1rem; border-radius: 6px; line-height: 1.5; }
 .modal__info a { color: var(--gold); font-weight: 700; }
 
-/* ===== TOAST ===== */
-.toast {
-  position: fixed; bottom: 2rem; right: 2rem;
-  background: var(--navy); color: #fff; padding: 1rem 1.75rem;
-  border-left: 4px solid var(--gold); border-radius: var(--radius);
-  font-weight: 600; font-size: .9rem; z-index: 300;
-  transform: translateX(120%); transition: transform .3s;
-  box-shadow: var(--shadow-lg);
-}
-.toast.show { transform: translateX(0); }
-
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .hero__grid { grid-template-columns: 1fr; gap: 3rem; }
