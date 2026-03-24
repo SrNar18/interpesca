@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''''html_url''''\\) or d.get\\(''''message'''',''''Error''''\\)\\)\")",
+      "Bash(where python3:*)",
+      "Bash(where python:*)",
+      "Bash(where py:*)",
+      "Bash(where node:*)",
+      "Bash(node create_pr.js)",
+      "Bash(node -e \":*)"
+    ]
+  }
+}
