@@ -218,7 +218,9 @@ a { text-decoration: none; color: inherit; }
 }
 .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--brown); margin-bottom: .75rem; }
 .modal p { font-size: .93rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; }
-.modal__price { display: block; font-size: 1.4rem; color: var(--green); margin-bottom: 1.5rem; }
+.modal__price { display: block; font-size: 1.4rem; color: var(--green); margin-bottom: 1rem; }
+.modal__info { font-size: .85rem; color: var(--text-muted); background: var(--cream-dark); border-left: 3px solid var(--brown-light); padding: .75rem 1rem; border-radius: 6px; line-height: 1.5; }
+.modal__info a { color: var(--brown); font-weight: 700; }
 
 /* ===== TOAST ===== */
 .toast {

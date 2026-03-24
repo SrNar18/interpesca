@@ -243,7 +243,9 @@ a { text-decoration: none; color: inherit; }
 .modal__price-row { display: flex; align-items: baseline; gap: .5rem; margin-bottom: .5rem; }
 .modal__price-label { font-size: .85rem; color: var(--text-muted); }
 .modal__price { font-size: 1.5rem; font-weight: 800; color: var(--navy); }
-.modal__note { font-size: .75rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+.modal__note { font-size: .75rem; color: var(--text-muted); margin-bottom: .75rem; }
+.modal__info { font-size: .85rem; color: var(--text-muted); background: var(--gray-bg); border-left: 3px solid var(--gold); padding: .75rem 1rem; border-radius: 6px; line-height: 1.5; }
+.modal__info a { color: var(--gold); font-weight: 700; }
 
 /* ===== TOAST ===== */
 .toast {
