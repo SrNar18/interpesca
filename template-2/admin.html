@@ -203,87 +203,123 @@
     </div>
 </div>
 
-<!-- SOLO CAMBIO IMPORTANTE: límite 3MB + fetch robusto -->
 <script>
 (function () {
     const TOKEN_KEY = 'tv_admin_token';
-    const MAX_FILE_SIZE = 3 * 1024 * 1024;
 
+    const loginSection = document.getElementById('loginSection');
+    const panelSection = document.getElementById('panelSection');
+    const loginForm    = document.getElementById('loginForm');
     const uploadForm   = document.getElementById('uploadForm');
+    const loginMsg     = document.getElementById('loginMsg');
     const uploadMsg    = document.getElementById('uploadMsg');
+    const loginBtn     = document.getElementById('loginBtn');
     const uploadBtn    = document.getElementById('uploadBtn');
+    const logoutBtn    = document.getElementById('logoutBtn');
 
     function showMsg(el, text, type) {
         el.textContent = text;
         el.className = 'message ' + type;
     }
 
-    function clearMsg(el) {
-        el.textContent = '';
-        el.className = 'message';
+    function setSection(section) {
+        loginSection.classList.toggle('active', section === 'login');
+        panelSection.classList.toggle('active', section === 'panel');
     }
 
+    if (sessionStorage.getItem(TOKEN_KEY)) {
+        setSection('panel');
+    } else {
+        setSection('login');
+    }
+
+    // ── LOGIN ──
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginBtn.disabled    = true;
+        loginBtn.textContent = 'Verificando...';
+        loginMsg.className   = 'message';
+
+        const username = document.getElementById('loginUser').value.trim();
+        const password = document.getElementById('loginPass').value;
+
+        try {
+            const res  = await fetch('/.netlify/functions/auth', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+
+            if (res.ok && data.token) {
+                sessionStorage.setItem(TOKEN_KEY, data.token);
+                setSection('panel');
+            } else {
+                showMsg(loginMsg, data.error || 'Error al iniciar sesión', 'error');
+            }
+        } catch {
+            showMsg(loginMsg, 'No se pudo conectar con el servidor.', 'error');
+        } finally {
+            loginBtn.disabled    = false;
+            loginBtn.textContent = 'Entrar';
+        }
+    });
+
+    // ── SUBIR PDF ──
     uploadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-
         const token  = sessionStorage.getItem(TOKEN_KEY);
         const fileEl = document.getElementById('pdfFile');
         const file   = fileEl.files[0];
 
-        clearMsg(uploadMsg);
-
-        if (!file) {
-            showMsg(uploadMsg, 'Selecciona un PDF', 'error');
-            return;
+        if (!file) { showMsg(uploadMsg, 'Selecciona un archivo PDF', 'error'); return; }
+        if (file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
+            showMsg(uploadMsg, 'El archivo debe ser un PDF', 'error'); return;
+        }
+        if (file.size > 3 * 1024 * 1024) {
+            showMsg(uploadMsg, 'El archivo supera los 3 MB', 'error'); return;
         }
 
-        if (file.size > MAX_FILE_SIZE) {
-            showMsg(uploadMsg, 'Máximo 3 MB', 'error');
-            return;
-        }
-
-        uploadBtn.disabled = true;
+        uploadBtn.disabled    = true;
         uploadBtn.textContent = 'Subiendo...';
+        uploadMsg.className   = 'message';
+
+        const base64 = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload  = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
 
         try {
-            const base64 = await new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = () => resolve(reader.result.split(',')[1]);
-                reader.onerror = reject;
-                reader.readAsDataURL(file);
-            });
-
-            const res = await fetch('/.netlify/functions/upload-pdf', {
+            const res  = await fetch('/.netlify/functions/upload-pdf', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
-                },
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
                 body: JSON.stringify({ data: base64 })
             });
-
-            const text = await res.text();
-
-            let data;
-            try {
-                data = JSON.parse(text);
-            } catch {
-                data = { error: text };
-            }
+            const data = await res.json();
 
             if (res.ok && data.success) {
-                showMsg(uploadMsg, '✓ Subido correctamente', 'success');
+                showMsg(uploadMsg, '✓ ' + data.message, 'success');
                 fileEl.value = '';
+            } else if (res.status === 401) {
+                sessionStorage.removeItem(TOKEN_KEY);
+                showMsg(uploadMsg, 'Sesión expirada. Recarga e inicia sesión.', 'error');
             } else {
-                showMsg(uploadMsg, data.error || 'Error al subir', 'error');
+                showMsg(uploadMsg, data.error || 'Error al subir el PDF', 'error');
             }
-
-        } catch (err) {
-            showMsg(uploadMsg, 'Error: ' + err.message, 'error');
+        } catch {
+            showMsg(uploadMsg, 'Error de conexión', 'error');
         } finally {
-            uploadBtn.disabled = false;
+            uploadBtn.disabled    = false;
             uploadBtn.textContent = '📤 Subir catálogo';
         }
+    });
+
+    // ── CERRAR SESIÓN ──
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.removeItem(TOKEN_KEY);
+        setSection('login');
     });
 })();
 </script>
