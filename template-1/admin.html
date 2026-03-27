@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — FrescaMar</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #eef2f7;
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+        }
+
+        .admin-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 44px 40px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 4px 24px rgba(44,62,85,.10);
+            border-top: 4px solid #2c3e55;
+        }
+
+        .admin-logo {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .admin-logo img {
+            height: 52px;
+            object-fit: contain;
+        }
+        .admin-logo p {
+            font-size: 11px;
+            color: #5a6a7a;
+            font-weight: 600;
+            margin: 10px 0 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 6px;
+            color: #2c3e55;
+        }
+        .panel-desc {
+            font-size: 13px;
+            color: #5a6a7a;
+            margin: 0 0 24px;
+        }
+
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: #5a6a7a;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 6px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 11px 14px;
+            border-radius: 8px;
+            border: 1.5px solid #dce5ef;
+            background: #f7f9fc;
+            color: #1a1a1a;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color .2s, background .2s;
+        }
+        .form-group input:focus { border-color: #2c3e55; background: #fff; }
+        .form-group input[type="file"] { padding: 9px 14px; cursor: pointer; }
+
+        .pdf-hint { font-size: 12px; color: #5a6a7a; margin: 5px 0 0; }
+
+        .btn-submit {
+            width: 100%;
+            padding: 13px;
+            background: #2c3e55;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background .2s, transform .15s;
+        }
+        .btn-submit:hover:not(:disabled) { background: #4a6278; transform: translateY(-1px); }
+        .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
+
+        .message {
+            margin-top: 14px;
+            padding: 11px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            text-align: center;
+            display: none;
+        }
+        .message.success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; display: block; }
+        .message.error   { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; display: block; }
+
+        #loginSection, #panelSection { display: none; }
+        #loginSection.active, #panelSection.active { display: block; }
+
+        .divider { border: none; border-top: 1px solid #eef2f7; margin: 24px 0 0; }
+
+        .logout-btn {
+            background: none;
+            border: none;
+            color: #5a6a7a;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            letter-spacing: .5px;
+            margin-top: 18px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            transition: color .2s;
+        }
+        .logout-btn:hover { color: #2c3e55; }
+
+        .status-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: #eef2f7;
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin-bottom: 22px;
+            font-size: 13px;
+            color: #5a6a7a;
+            line-height: 1.5;
+        }
+        .status-note span { font-size: 18px; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+
+<div class="admin-card">
+    <div class="admin-logo">
+        <img src="/img/logo.png" alt="FrescaMar">
+        <p>Panel de administración</p>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginSection" class="active">
+        <h2>Acceder</h2>
+        <p class="panel-desc">Introduce tus credenciales para continuar.</p>
+        <form id="loginForm" autocomplete="off">
+            <div class="form-group">
+                <label>Usuario</label>
+                <input type="text" id="loginUser" placeholder="Usuario" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" id="loginPass" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-submit" id="loginBtn">Entrar</button>
+        </form>
+        <div id="loginMsg" class="message"></div>
+    </div>
+
+    <!-- PANEL -->
+    <div id="panelSection">
+        <h2>Actualizar catálogo PDF</h2>
+        <p class="panel-desc">Reemplaza el catálogo que los clientes pueden descargar desde la web.</p>
+
+        <div class="status-note">
+            <span>📋</span>
+            <span>El nuevo PDF reemplazará inmediatamente el catálogo disponible. Máximo 4 MB.</span>
+        </div>
+
+        <form id="uploadForm">
+            <div class="form-group">
+                <label>Nuevo archivo PDF</label>
+                <input type="file" id="pdfFile" accept=".pdf,application/pdf" required>
+                <p class="pdf-hint">Solo formato PDF · Máximo 4 MB</p>
+            </div>
+            <button type="submit" class="btn-submit" id="uploadBtn">📤 Subir catálogo</button>
+        </form>
+        <div id="uploadMsg" class="message"></div>
+
+        <hr class="divider">
+        <button class="logout-btn" id="logoutBtn">Cerrar sesión</button>
+    </div>
+</div>
+
+<script>
+(function () {
+    const TOKEN_KEY = 'fm_admin_token';
+
+    const loginSection = document.getElementById('loginSection');
+    const panelSection = document.getElementById('panelSection');
+    const loginForm    = document.getElementById('loginForm');
+    const uploadForm   = document.getElementById('uploadForm');
+    const loginMsg     = document.getElementById('loginMsg');
+    const uploadMsg    = document.getElementById('uploadMsg');
+    const loginBtn     = document.getElementById('loginBtn');
+    const uploadBtn    = document.getElementById('uploadBtn');
+    const logoutBtn    = document.getElementById('logoutBtn');
+
+    function showMsg(el, text, type) {
+        el.textContent = text;
+        el.className = 'message ' + type;
+    }
+
+    function setSection(section) {
+        loginSection.classList.toggle('active', section === 'login');
+        panelSection.classList.toggle('active', section === 'panel');
+    }
+
+    if (sessionStorage.getItem(TOKEN_KEY)) {
+        setSection('panel');
+    } else {
+        setSection('login');
+    }
+
+    // ── LOGIN ──
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginBtn.disabled    = true;
+        loginBtn.textContent = 'Verificando...';
+        loginMsg.className   = 'message';
+
+        const username = document.getElementById('loginUser').value.trim();
+        const password = document.getElementById('loginPass').value;
+
+        try {
+            const res  = await fetch('/.netlify/functions/auth', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+
+            if (res.ok && data.token) {
+                sessionStorage.setItem(TOKEN_KEY, data.token);
+                setSection('panel');
+            } else {
+                showMsg(loginMsg, data.error || 'Error al iniciar sesión', 'error');
+            }
+        } catch {
+            showMsg(loginMsg, 'No se pudo conectar con el servidor.', 'error');
+        } finally {
+            loginBtn.disabled    = false;
+            loginBtn.textContent = 'Entrar';
+        }
+    });
+
+    // ── SUBIR PDF ──
+    uploadForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const token  = sessionStorage.getItem(TOKEN_KEY);
+        const fileEl = document.getElementById('pdfFile');
+        const file   = fileEl.files[0];
+
+        if (!file) { showMsg(uploadMsg, 'Selecciona un archivo PDF', 'error'); return; }
+        if (file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
+            showMsg(uploadMsg, 'El archivo debe ser un PDF', 'error'); return;
+        }
+        if (file.size > 4 * 1024 * 1024) {
+            showMsg(uploadMsg, 'El archivo supera los 4 MB', 'error'); return;
+        }
+
+        uploadBtn.disabled    = true;
+        uploadBtn.textContent = 'Subiendo...';
+        uploadMsg.className   = 'message';
+
+        const base64 = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload  = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+
+        try {
+            const res  = await fetch('/.netlify/functions/upload-pdf', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify({ data: base64 })
+            });
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                showMsg(uploadMsg, '✓ ' + data.message, 'success');
+                fileEl.value = '';
+            } else if (res.status === 401) {
+                sessionStorage.removeItem(TOKEN_KEY);
+                showMsg(uploadMsg, 'Sesión expirada. Recarga e inicia sesión.', 'error');
+            } else {
+                showMsg(uploadMsg, data.error || 'Error al subir el PDF', 'error');
+            }
+        } catch {
+            showMsg(uploadMsg, 'Error de conexión', 'error');
+        } finally {
+            uploadBtn.disabled    = false;
+            uploadBtn.textContent = '📤 Subir catálogo';
+        }
+    });
+
+    // ── CERRAR SESIÓN ──
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.removeItem(TOKEN_KEY);
+        setSection('login');
+    });
+})();
+</script>
+
+</body>
+</html>
